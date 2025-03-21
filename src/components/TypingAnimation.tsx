@@ -60,10 +60,10 @@ const TypingAnimation = () => {
   }, [displayText, isDeleting, currentIndex, typingSpeed]);
 
   return (
-    <div className="flex items-center justify-center min-h-[36px]">
-      <p className="text-xl font-medium text-trav-accent relative">
+    <div className="flex items-center justify-center min-h-[48px]">
+      <p className="text-2xl md:text-3xl font-medium text-trav-accent relative">
         {displayText}
-        <span className="inline-block w-0.5 h-5 bg-trav-accent ml-0.5 animate-pulse"></span>
+        <span className="inline-block w-0.5 h-6 bg-trav-accent ml-0.5 animate-pulse"></span>
       </p>
     </div>
   );
