@@ -3,11 +3,29 @@ import React, { useState, useEffect } from 'react';
 
 const greetings = [
   { text: "Hi", language: "English" },
+  { text: "Hello", language: "English" },
   { text: "नमस्ते", language: "Hindi" },
   { text: "Hola", language: "Spanish" },
   { text: "Bonjour", language: "French" },
+  { text: "Hallo", language: "German" },
   { text: "Ciao", language: "Italian" },
-  { text: "Konnichiwa", language: "Japanese" },
+  { text: "Salve", language: "Italian" },
+  { text: "Olá", language: "Portuguese" },
+  { text: "Привет", language: "Russian" },
+  { text: "مرحبا", language: "Arabic" },
+  { text: "नमस्कार", language: "Bengali" },
+  { text: "你好", language: "Chinese (Mandarin)" },
+  { text: "こんにちは", language: "Japanese" },
+  { text: "안녕하세요", language: "Korean" },
+  { text: "Jambo", language: "Swahili" },
+  { text: "Habari", language: "Swahili" },
+  { text: "Merhaba", language: "Turkish" },
+  { text: "สวัสดี", language: "Thai" },
+  { text: "Hai", language: "Malay / Indonesian" },
+  { text: "Halo", language: "Malay / Indonesian" },
+  { text: "Xin chào", language: "Vietnamese" },
+  { text: "Γειά σου", language: "Greek" },
+  { text: "Hallo", language: "Dutch" },
 ];
 
 const TypingAnimation = () => {
@@ -17,7 +35,7 @@ const TypingAnimation = () => {
   const [typingSpeed, setTypingSpeed] = useState(150);
 
   useEffect(() => {
-    const currentGreeting = greetings[currentIndex].text + " trav-eler";
+    const currentGreeting = greetings[currentIndex].text + "! trav-eler";
     
     const typeEffect = () => {
       if (!isDeleting && displayText.length < currentGreeting.length) {

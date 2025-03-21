@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Logo from '@/components/Logo';
 import BackgroundEffect from '@/components/BackgroundEffect';
-import { Globe, Package, Compass, Users, Heart } from 'lucide-react';
+import { Package, Compass, Users, Heart } from 'lucide-react';
 import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import TypingAnimation from '@/components/TypingAnimation';
 
@@ -20,7 +20,7 @@ const Index = () => {
       <header className="w-full pt-6 px-6">
         <div className="max-w-screen-xl mx-auto flex justify-center">
           <div className={`opacity-0 ${isVisible ? 'animate-slide-up' : ''}`}>
-            <Logo size="md" animated={true} />
+            <Logo size="md" animated={true} imageSrc="/lovable-uploads/78cc655e-778f-49b2-b0e4-95ee9099c8a0.png" />
           </div>
         </div>
       </header>
@@ -28,7 +28,7 @@ const Index = () => {
       <div className="flex-1 w-full max-w-screen-xl mx-auto px-6 py-10 md:py-16 flex flex-col items-center justify-center">
         <div className="flex flex-col items-center text-center mb-8 md:mb-12">
           <div className={`mb-4 opacity-0 ${isVisible ? 'animate-slide-up' : ''}`}>
-            <Logo size="lg" animated={true} />
+            <Logo size="lg" animated={true} imageSrc="/lovable-uploads/78cc655e-778f-49b2-b0e4-95ee9099c8a0.png" />
           </div>
           
           <div className={`mb-6 opacity-0 ${isVisible ? 'animate-slide-up-delay-1' : ''}`}>
