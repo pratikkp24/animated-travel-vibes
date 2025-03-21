@@ -5,7 +5,7 @@ import CountdownTimer from '@/components/CountdownTimer';
 import EmailSignup from '@/components/EmailSignup';
 import TravelCards from '@/components/TravelCards';
 import BackgroundEffect from '@/components/BackgroundEffect';
-import { Globe, MapPin, Palm, Mountain, Building } from 'lucide-react';
+import { Globe, MapPin, PalmTree, Mountain, Building } from 'lucide-react';
 
 const Index = () => {
   // Set launch date to 45 days from now
@@ -80,7 +80,7 @@ const Index = () => {
           
           <div className="p-6 rounded-xl glassmorphism opacity-0 animate-slide-up-delay-4">
             <div className="w-12 h-12 rounded-lg bg-trav-secondary flex items-center justify-center mb-4">
-              <Palm className="text-trav-primary" />
+              <PalmTree className="text-trav-primary" />
             </div>
             <h3 className="text-xl font-semibold mb-2">Connect with Travelers</h3>
             <p className="text-trav-muted">Share experiences, get advice, and join a community of passionate travelers from around the world.</p>
@@ -111,7 +111,7 @@ const Index = () => {
           
           <div className="flex justify-center gap-6 mb-8">
             <button className="flex items-center gap-2 py-2 px-4 rounded-full bg-trav-primary text-white opacity-0 animate-slide-up-delay-2">
-              <Palm size={18} />
+              <PalmTree size={18} />
               <span>Beach</span>
             </button>
             <button className="flex items-center gap-2 py-2 px-4 rounded-full bg-white border border-trav-primary/20 text-trav-primary opacity-0 animate-slide-up-delay-3">
