@@ -19,8 +19,8 @@ const Index = () => {
       
       <header className="w-full pt-6 px-6">
         <div className="max-w-screen-xl mx-auto flex justify-start">
-          <div className={`opacity-0 ${isVisible ? 'animate-slide-up' : ''}`}>
-            <Logo size="md" animated={true} imageSrc="/lovable-uploads/6cfd83da-2b8a-4787-a6f7-19f93759c0dc.png" />
+          <div className="animate-slide-up">
+            <Logo size="md" animated={true} imageSrc="/lovable-uploads/9e1f99be-8081-45e3-a8d5-4df2c21f8e8e.png" />
           </div>
         </div>
       </header>

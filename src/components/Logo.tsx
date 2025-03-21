@@ -29,16 +29,14 @@ const Logo: React.FC<LogoProps> = ({
           alt="trav logo" 
           className={cn(
             "rounded-lg", 
-            sizeClasses[size],
-            animated && "animate-pulse"
+            sizeClasses[size]
           )}
         />
         <span className={cn(
           "font-bold tracking-tight",
           size === 'sm' && "text-xl",
           size === 'md' && "text-2xl",
-          size === 'lg' && "text-3xl",
-          animated && "animate-fade-in"
+          size === 'lg' && "text-3xl"
         )}>
           trav
         </span>
@@ -64,8 +62,7 @@ const Logo: React.FC<LogoProps> = ({
         "font-bold tracking-tight",
         size === 'sm' && "text-xl",
         size === 'md' && "text-2xl",
-        size === 'lg' && "text-3xl",
-        animated && "animate-fade-in"
+        size === 'lg' && "text-3xl"
       )}>
         trav
       </span>
