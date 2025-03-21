@@ -20,7 +20,7 @@ const Index = () => {
       <header className="w-full pt-6 px-6">
         <div className="max-w-screen-xl mx-auto flex justify-start">
           <div className="animate-slide-up">
-            <Logo size="md" animated={true} imageSrc="/lovable-uploads/9e1f99be-8081-45e3-a8d5-4df2c21f8e8e.png" />
+            <Logo size="md" animated={false} imageSrc="/lovable-uploads/8ef10f67-4be2-44c7-8331-150171b1f4db.png" />
           </div>
         </div>
       </header>
