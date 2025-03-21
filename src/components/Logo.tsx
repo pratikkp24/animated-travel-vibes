@@ -7,13 +7,15 @@ interface LogoProps {
   size?: 'sm' | 'md' | 'lg';
   animated?: boolean;
   imageSrc?: string;
+  hideText?: boolean;
 }
 
 const Logo: React.FC<LogoProps> = ({ 
   className, 
   size = 'md', 
   animated = true,
-  imageSrc 
+  imageSrc,
+  hideText = false
 }) => {
   const sizeClasses = {
     sm: 'h-8',
@@ -32,14 +34,16 @@ const Logo: React.FC<LogoProps> = ({
             sizeClasses[size]
           )}
         />
-        <span className={cn(
-          "font-bold tracking-tight",
-          size === 'sm' && "text-xl",
-          size === 'md' && "text-2xl",
-          size === 'lg' && "text-3xl"
-        )}>
-          trav
-        </span>
+        {!hideText && (
+          <span className={cn(
+            "font-bold tracking-tight",
+            size === 'sm' && "text-xl",
+            size === 'md' && "text-2xl",
+            size === 'lg' && "text-3xl"
+          )}>
+            trav
+          </span>
+        )}
       </div>
     );
   }
@@ -58,14 +62,16 @@ const Logo: React.FC<LogoProps> = ({
           animated && "animate-wave"
         )}></div>
       </div>
-      <span className={cn(
-        "font-bold tracking-tight",
-        size === 'sm' && "text-xl",
-        size === 'md' && "text-2xl",
-        size === 'lg' && "text-3xl"
-      )}>
-        trav
-      </span>
+      {!hideText && (
+        <span className={cn(
+          "font-bold tracking-tight",
+          size === 'sm' && "text-xl",
+          size === 'md' && "text-2xl",
+          size === 'lg' && "text-3xl"
+        )}>
+          trav
+        </span>
+      )}
     </div>
   );
 };
