@@ -18,9 +18,9 @@ const Index = () => {
       <BackgroundEffect />
       
       <header className="w-full pt-6 px-6">
-        <div className="max-w-screen-xl mx-auto flex justify-center">
+        <div className="max-w-screen-xl mx-auto flex justify-start">
           <div className={`opacity-0 ${isVisible ? 'animate-slide-up' : ''}`}>
-            <Logo size="md" animated={true} imageSrc="/lovable-uploads/78cc655e-778f-49b2-b0e4-95ee9099c8a0.png" />
+            <Logo size="md" animated={true} imageSrc="/lovable-uploads/6cfd83da-2b8a-4787-a6f7-19f93759c0dc.png" />
           </div>
         </div>
       </header>
