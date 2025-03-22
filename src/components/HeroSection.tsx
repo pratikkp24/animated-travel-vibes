@@ -2,6 +2,7 @@
 import React from 'react';
 import TypingAnimation from './TypingAnimation';
 import EarlyAccessForm from './EarlyAccessForm';
+import RocketAnimation from './RocketAnimation';
 
 interface HeroSectionProps {
   isVisible: boolean;
@@ -9,7 +10,9 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ isVisible }) => {
   return (
-    <div className="flex flex-col items-center text-center mb-8 md:mb-12">
+    <div className="flex flex-col items-center text-center mb-8 md:mb-12 relative">
+      <RocketAnimation isVisible={isVisible} />
+      
       <div className={`mb-4 opacity-0 ${isVisible ? 'animate-slide-up-delay-1' : ''}`}>
         <TypingAnimation />
       </div>

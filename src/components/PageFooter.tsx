@@ -18,8 +18,8 @@ const PageFooter: React.FC = () => {
           </div>
         </div>
         
-        {/* Contact Information - Moved slightly to the left */}
-        <div className="flex items-center text-trav-primary md:mr-auto">
+        {/* Contact Information - Centered */}
+        <div className="flex items-center text-trav-primary">
           <Mail className="h-5 w-5 mr-2" />
           <a href="mailto:info@trav.guide" className="hover:underline">
             info@trav.guide
