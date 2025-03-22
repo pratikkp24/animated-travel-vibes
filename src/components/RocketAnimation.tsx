@@ -13,7 +13,8 @@ const RocketAnimation: React.FC<RocketAnimationProps> = ({ isVisible }) => {
     if (isVisible && !animationStarted) {
       setAnimationStarted(true);
       
-      // Rocket animation is now 5s, so show text after 4s (80% through animation)
+      // Show "Launching Soon" text after the rocket has traveled some distance
+      // Now showing text after 4s (80% through 5s animation)
       const textTimer = setTimeout(() => {
         setShowLaunchingText(true);
       }, 4000);
@@ -79,13 +80,14 @@ const RocketAnimation: React.FC<RocketAnimationProps> = ({ isVisible }) => {
             
             {/* Rocket Porthole */}
             <circle cx="40" cy="65" r="3" fill="#4A4A4A" />
-            
-            <div className="rocket-trail absolute bottom-0 left-1/2 transform -translate-x-1/2">
-              <div className="absolute w-6 h-6 bg-orange-300/30 rounded-full animate-trail-1"></div>
-              <div className="absolute w-5 h-5 bg-orange-400/40 rounded-full animate-trail-2"></div>
-              <div className="absolute w-4 h-4 bg-orange-500/50 rounded-full animate-trail-3"></div>
-            </div>
           </svg>
+          
+          {/* Rocket Trail */}
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
+            <div className="absolute w-6 h-6 bg-orange-300/30 rounded-full animate-trail-1"></div>
+            <div className="absolute w-5 h-5 bg-orange-400/40 rounded-full animate-trail-2"></div>
+            <div className="absolute w-4 h-4 bg-orange-500/50 rounded-full animate-trail-3"></div>
+          </div>
         </div>
       </div>
       
@@ -120,13 +122,14 @@ const RocketAnimation: React.FC<RocketAnimationProps> = ({ isVisible }) => {
             
             {/* Rocket Porthole */}
             <circle cx="40" cy="65" r="3" fill="#4A4A4A" />
-            
-            <div className="rocket-trail absolute bottom-0 left-1/2 transform -translate-x-1/2">
-              <div className="absolute w-4 h-4 bg-orange-300/30 rounded-full animate-trail-mobile-1"></div>
-              <div className="absolute w-3 h-3 bg-orange-400/40 rounded-full animate-trail-mobile-2"></div>
-              <div className="absolute w-2 h-2 bg-orange-500/50 rounded-full animate-trail-mobile-3"></div>
-            </div>
           </svg>
+          
+          {/* Rocket Trail */}
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
+            <div className="absolute w-4 h-4 bg-orange-300/30 rounded-full animate-trail-mobile-1"></div>
+            <div className="absolute w-3 h-3 bg-orange-400/40 rounded-full animate-trail-mobile-2"></div>
+            <div className="absolute w-2 h-2 bg-orange-500/50 rounded-full animate-trail-mobile-3"></div>
+          </div>
         </div>
       </div>
       
