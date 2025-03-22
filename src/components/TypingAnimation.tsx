@@ -35,7 +35,7 @@ const TypingAnimation = () => {
   const [typingSpeed, setTypingSpeed] = useState(150);
 
   useEffect(() => {
-    const currentGreeting = greetings[currentIndex].text + "! trav-eler";
+    const currentGreeting = greetings[currentIndex].text + "! traveler";
     
     const typeEffect = () => {
       if (!isDeleting && displayText.length < currentGreeting.length) {

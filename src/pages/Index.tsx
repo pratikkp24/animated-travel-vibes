@@ -5,6 +5,7 @@ import BackgroundEffect from '@/components/BackgroundEffect';
 import { Package, Compass, Users, Heart } from 'lucide-react';
 import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import TypingAnimation from '@/components/TypingAnimation';
+import EarlyAccessForm from '@/components/EarlyAccessForm';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,11 +28,7 @@ const Index = () => {
       
       <div className="flex-1 w-full max-w-screen-xl mx-auto px-6 py-10 md:py-16 flex flex-col items-center justify-center">
         <div className="flex flex-col items-center text-center mb-8 md:mb-12">
-          <div className={`mb-4 opacity-0 ${isVisible ? 'animate-slide-up' : ''}`}>
-            <Logo size="lg" animated={true} imageSrc="/lovable-uploads/78cc655e-778f-49b2-b0e4-95ee9099c8a0.png" />
-          </div>
-          
-          <div className={`mb-6 opacity-0 ${isVisible ? 'animate-slide-up-delay-1' : ''}`}>
+          <div className={`mb-4 opacity-0 ${isVisible ? 'animate-slide-up-delay-1' : ''}`}>
             <TypingAnimation />
           </div>
           
@@ -43,8 +40,8 @@ const Index = () => {
             We're working on creating the ultimate travel experience. Get ready to discover the world with us.
           </p>
           
-          <div className={`text-xl font-medium text-trav-primary opacity-0 ${isVisible ? 'animate-slide-up-delay-3' : ''}`}>
-            Launching Soon
+          <div className={`opacity-0 ${isVisible ? 'animate-slide-up-delay-3' : ''}`}>
+            <EarlyAccessForm />
           </div>
         </div>
         
