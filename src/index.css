@@ -186,40 +186,40 @@
   }
   
   .animate-rocket-fly-desktop {
-    animation: rocket-desktop 3.2s ease-in-out forwards;
+    animation: rocket-desktop 5s ease-in-out forwards;
   }
   
   .animate-rocket-fly-mobile {
-    animation: rocket-mobile 3.2s ease-in-out forwards;
+    animation: rocket-mobile 5s ease-in-out forwards;
   }
   
   .animate-trail-1 {
-    animation: trail-fade 1.5s ease-out infinite;
+    animation: trail-fade 2s ease-out infinite;
     animation-delay: 0.1s;
   }
   
   .animate-trail-2 {
-    animation: trail-fade 1.5s ease-out infinite;
+    animation: trail-fade 2s ease-out infinite;
     animation-delay: 0.2s;
   }
   
   .animate-trail-3 {
-    animation: trail-fade 1.5s ease-out infinite;
+    animation: trail-fade 2s ease-out infinite;
     animation-delay: 0.3s;
   }
   
   .animate-trail-mobile-1 {
-    animation: trail-fade 1.2s ease-out infinite;
+    animation: trail-fade 1.8s ease-out infinite;
     animation-delay: 0.1s;
   }
   
   .animate-trail-mobile-2 {
-    animation: trail-fade 1.2s ease-out infinite;
+    animation: trail-fade 1.8s ease-out infinite;
     animation-delay: 0.2s;
   }
   
   .animate-trail-mobile-3 {
-    animation: trail-fade 1.2s ease-out infinite;
+    animation: trail-fade 1.8s ease-out infinite;
     animation-delay: 0.3s;
   }
   

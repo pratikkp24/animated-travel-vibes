@@ -13,10 +13,10 @@ const RocketAnimation: React.FC<RocketAnimationProps> = ({ isVisible }) => {
     if (isVisible && !animationStarted) {
       setAnimationStarted(true);
       
-      // Trigger "Launching Soon" text after rocket passes mid-screen (2.5s into 3.2s animation)
+      // Rocket animation is now 5s, so show text after 4s (80% through animation)
       const textTimer = setTimeout(() => {
         setShowLaunchingText(true);
-      }, 2500);
+      }, 4000);
       
       return () => {
         clearTimeout(textTimer);
@@ -30,7 +30,7 @@ const RocketAnimation: React.FC<RocketAnimationProps> = ({ isVisible }) => {
       const resetTimer = setTimeout(() => {
         setAnimationStarted(false);
         setShowLaunchingText(false);
-      }, 6000); // Animation (3.2s) + extra time for text visibility
+      }, 9000); // Animation (5s) + extra time for text visibility (4s)
       
       return () => {
         clearTimeout(resetTimer);
