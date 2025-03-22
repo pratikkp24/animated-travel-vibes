@@ -11,10 +11,10 @@ const FeatureCards: React.FC = () => {
           <div className="w-12 h-12 rounded-lg bg-trav-secondary flex items-center justify-center mb-4">
             <Package className="text-trav-primary" />
           </div>
-          <h3 className="text-xl font-semibold">Wander Pack</h3>
+          <h3 className="text-xl font-semibold">🧳 Wander Pack</h3>
         </CardHeader>
         <CardContent className="p-0">
-          <p className="text-trav-muted">Soon, you'll unlock access to destination guides, packing tips, and travel hacks curated just for you.</p>
+          <p className="text-trav-muted">Smart tips. Hidden gems. A travel toolkit crafted just for you — with a little help from AI.</p>
         </CardContent>
       </Card>
       
@@ -23,10 +23,10 @@ const FeatureCards: React.FC = () => {
           <div className="w-12 h-12 rounded-lg bg-trav-secondary flex items-center justify-center mb-4">
             <Compass className="text-trav-primary" />
           </div>
-          <h3 className="text-xl font-semibold">Explore Mode</h3>
+          <h3 className="text-xl font-semibold">🌀 Explore Mode</h3>
         </CardHeader>
         <CardContent className="p-0">
-          <p className="text-trav-muted">Get ready to experience our upcoming surprise trip planner — drop a pin, get inspired, and see where the wind might take you!</p>
+          <p className="text-trav-muted">Drop a pin. Watch it plan. The way you discover and design trips is about to change.</p>
         </CardContent>
       </Card>
       
@@ -35,10 +35,10 @@ const FeatureCards: React.FC = () => {
           <div className="w-12 h-12 rounded-lg bg-trav-secondary flex items-center justify-center mb-4">
             <Users className="text-trav-primary" />
           </div>
-          <h3 className="text-xl font-semibold">Travel Tribe</h3>
+          <h3 className="text-xl font-semibold">🌍 Travel Tribe</h3>
         </CardHeader>
         <CardContent className="p-0">
-          <p className="text-trav-muted">In the near future, you'll be able to join exclusive traveler groups, connect with like-minded explorers, and start building your travel community.</p>
+          <p className="text-trav-muted">A new kind of travel story is coming. Share your journey, spark someone else's.</p>
         </CardContent>
       </Card>
     </div>

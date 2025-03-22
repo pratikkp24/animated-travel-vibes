@@ -19,7 +19,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isVisible }) => {
       </h1>
       
       <p className={`text-lg md:text-xl text-trav-muted max-w-3xl mx-auto mb-8 opacity-0 ${isVisible ? 'animate-slide-up-delay-2' : ''}`}>
-        We're working on creating the ultimate travel experience. Get ready to discover the world with us.
+        A whole new world of travel is landing soon — are you packed?
       </p>
       
       <div className={`opacity-0 ${isVisible ? 'animate-slide-up-delay-3' : ''}`}>
