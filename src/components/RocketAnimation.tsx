@@ -40,25 +40,50 @@ const RocketAnimation: React.FC<RocketAnimationProps> = ({ isVisible }) => {
 
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {/* Floating Clouds */}
+      <div className="absolute inset-0 z-0">
+        <div className="cloud cloud-1"></div>
+        <div className="cloud cloud-2"></div>
+        <div className="cloud cloud-3"></div>
+        <div className="cloud cloud-4"></div>
+      </div>
+      
       {/* Rocket Animation - Desktop */}
       <div className={`
         hidden md:block absolute 
         ${animationStarted ? 'animate-rocket-fly-desktop' : '-left-20 top-1/3'}
-        transition-all duration-300
+        transition-all duration-300 z-10
       `}>
         <div className="relative">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M4.5 16.5L3 18L4.5 19.5L6 21L7.5 19.5M12 15L9 18H13.5L15 16.5M16.5 9L15 10.5V15L16.5 16.5L18 15L19.5 13.5L21 12L19.5 10.5L18 9L16.5 7.5L15 6L13.5 7.5L12 9L10.5 10.5L9 12L10.5 13.5L12 15L13.5 13.5L15 12M4.5 12L3 13.5L4.5 15L6 13.5L7.5 12L9 10.5L7.5 9L6 7.5L4.5 9L3 10.5L4.5 12Z"
-              className="stroke-trav-primary"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <div className="rocket-trail absolute -right-8 -top-2 w-8 h-4">
-              <div className="absolute w-2 h-2 bg-trav-primary/20 rounded-full animate-trail-1"></div>
-              <div className="absolute w-3 h-3 bg-trav-primary/30 rounded-full animate-trail-2"></div>
-              <div className="absolute w-1 h-1 bg-trav-primary/40 rounded-full animate-trail-3"></div>
+          <svg width="80" height="120" viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Rocket Flame */}
+            <path className="rocket-flame" d="M40 90 L30 120 L40 105 L50 120 L40 90" fill="#F6B93B" />
+            
+            {/* Rocket Body */}
+            <ellipse cx="40" cy="60" rx="20" ry="40" fill="#F5F7FA" stroke="#E1E8ED" strokeWidth="1" />
+            
+            {/* Rocket Bottom */}
+            <path d="M20 80 Q40 90, 60 80" fill="#E74C3C" stroke="#C0392B" strokeWidth="1" />
+            
+            {/* Rocket Fins */}
+            <path d="M15 75 L5 90 L20 80 Z" fill="#E74C3C" stroke="#C0392B" strokeWidth="1" />
+            <path d="M65 75 L75 90 L60 80 Z" fill="#E74C3C" stroke="#C0392B" strokeWidth="1" />
+            
+            {/* Rocket Top */}
+            <path d="M20 20 Q40 0, 60 20" fill="#E74C3C" stroke="#C0392B" strokeWidth="1" />
+            
+            {/* Rocket Window */}
+            <circle cx="40" cy="40" r="8" fill="#E74C3C" stroke="#C0392B" strokeWidth="1" />
+            <path d="M37 40 L43 40" stroke="white" strokeWidth="2" strokeLinecap="round" />
+            <path d="M40 37 L40 43" stroke="white" strokeWidth="2" strokeLinecap="round" />
+            
+            {/* Rocket Porthole */}
+            <circle cx="40" cy="65" r="3" fill="#4A4A4A" />
+            
+            <div className="rocket-trail absolute bottom-0 left-1/2 transform -translate-x-1/2">
+              <div className="absolute w-6 h-6 bg-orange-300/30 rounded-full animate-trail-1"></div>
+              <div className="absolute w-5 h-5 bg-orange-400/40 rounded-full animate-trail-2"></div>
+              <div className="absolute w-4 h-4 bg-orange-500/50 rounded-full animate-trail-3"></div>
             </div>
           </svg>
         </div>
@@ -67,22 +92,39 @@ const RocketAnimation: React.FC<RocketAnimationProps> = ({ isVisible }) => {
       {/* Rocket Animation - Mobile */}
       <div className={`
         md:hidden absolute
-        ${animationStarted ? 'animate-rocket-fly-mobile' : '-bottom-10 -left-10'}
-        transition-all duration-300
+        ${animationStarted ? 'animate-rocket-fly-mobile' : '-bottom-20 -left-20'}
+        transition-all duration-300 z-10
       `}>
-        <div className="relative rotate-45">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M4.5 16.5L3 18L4.5 19.5L6 21L7.5 19.5M12 15L9 18H13.5L15 16.5M16.5 9L15 10.5V15L16.5 16.5L18 15L19.5 13.5L21 12L19.5 10.5L18 9L16.5 7.5L15 6L13.5 7.5L12 9L10.5 10.5L9 12L10.5 13.5L12 15L13.5 13.5L15 12M4.5 12L3 13.5L4.5 15L6 13.5L7.5 12L9 10.5L7.5 9L6 7.5L4.5 9L3 10.5L4.5 12Z"
-              className="stroke-trav-primary"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <div className="rocket-trail absolute -right-6 -top-1 w-6 h-3">
-              <div className="absolute w-1.5 h-1.5 bg-trav-primary/20 rounded-full animate-trail-mobile-1"></div>
-              <div className="absolute w-2 h-2 bg-trav-primary/30 rounded-full animate-trail-mobile-2"></div>
-              <div className="absolute w-1 h-1 bg-trav-primary/40 rounded-full animate-trail-mobile-3"></div>
+        <div className="relative">
+          <svg width="60" height="90" viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Rocket Flame */}
+            <path className="rocket-flame" d="M40 90 L30 120 L40 105 L50 120 L40 90" fill="#F6B93B" />
+            
+            {/* Rocket Body */}
+            <ellipse cx="40" cy="60" rx="20" ry="40" fill="#F5F7FA" stroke="#E1E8ED" strokeWidth="1" />
+            
+            {/* Rocket Bottom */}
+            <path d="M20 80 Q40 90, 60 80" fill="#E74C3C" stroke="#C0392B" strokeWidth="1" />
+            
+            {/* Rocket Fins */}
+            <path d="M15 75 L5 90 L20 80 Z" fill="#E74C3C" stroke="#C0392B" strokeWidth="1" />
+            <path d="M65 75 L75 90 L60 80 Z" fill="#E74C3C" stroke="#C0392B" strokeWidth="1" />
+            
+            {/* Rocket Top */}
+            <path d="M20 20 Q40 0, 60 20" fill="#E74C3C" stroke="#C0392B" strokeWidth="1" />
+            
+            {/* Rocket Window */}
+            <circle cx="40" cy="40" r="8" fill="#E74C3C" stroke="#C0392B" strokeWidth="1" />
+            <path d="M37 40 L43 40" stroke="white" strokeWidth="2" strokeLinecap="round" />
+            <path d="M40 37 L40 43" stroke="white" strokeWidth="2" strokeLinecap="round" />
+            
+            {/* Rocket Porthole */}
+            <circle cx="40" cy="65" r="3" fill="#4A4A4A" />
+            
+            <div className="rocket-trail absolute bottom-0 left-1/2 transform -translate-x-1/2">
+              <div className="absolute w-4 h-4 bg-orange-300/30 rounded-full animate-trail-mobile-1"></div>
+              <div className="absolute w-3 h-3 bg-orange-400/40 rounded-full animate-trail-mobile-2"></div>
+              <div className="absolute w-2 h-2 bg-orange-500/50 rounded-full animate-trail-mobile-3"></div>
             </div>
           </svg>
         </div>

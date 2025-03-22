@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -164,15 +163,88 @@
     to { transform: translateX(-50%); }
   }
   
+  /* Floating Clouds */
+  .cloud {
+    @apply absolute bg-white/20 rounded-full;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    filter: blur(5px);
+  }
+  
+  .cloud-1 {
+    width: 100px;
+    height: 60px;
+    top: 15%;
+    left: 10%;
+    animation: float-cloud 20s linear infinite;
+  }
+  
+  .cloud-2 {
+    width: 80px;
+    height: 50px;
+    top: 40%;
+    right: 15%;
+    animation: float-cloud 25s linear infinite;
+    animation-delay: -5s;
+  }
+  
+  .cloud-3 {
+    width: 120px;
+    height: 70px;
+    bottom: 20%;
+    left: 20%;
+    animation: float-cloud 18s linear infinite;
+    animation-delay: -10s;
+  }
+  
+  .cloud-4 {
+    width: 90px;
+    height: 55px;
+    top: 10%;
+    right: 25%;
+    animation: float-cloud 22s linear infinite;
+    animation-delay: -8s;
+  }
+  
+  @keyframes float-cloud {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    10% {
+      opacity: 0.8;
+    }
+    90% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100vw);
+    }
+  }
+  
   /* Rocket animation keyframes */
   @keyframes rocket-desktop {
-    0% { transform: translate(-100%, 0); }
-    100% { transform: translate(calc(100vw + 100px), 0); }
+    0% { 
+      transform: translate(-100%, 0); 
+    }
+    50% {
+      transform: translate(calc(50vw - 40px), -50px);
+    }
+    100% { 
+      transform: translate(calc(100vw + 100px), 0); 
+    }
   }
   
   @keyframes rocket-mobile {
-    0% { transform: translate(0, 0) rotate(45deg); }
-    100% { transform: translate(calc(100vw + 50px), calc(-100vh - 50px)) rotate(45deg); }
+    0% { 
+      transform: translate(0, 0) rotate(45deg); 
+    }
+    50% {
+      transform: translate(calc(50vw - 30px), calc(-50vh)) rotate(45deg);
+    }
+    100% { 
+      transform: translate(calc(100vw + 50px), calc(-100vh - 50px)) rotate(45deg); 
+    }
   }
   
   @keyframes trail-fade {
@@ -183,6 +255,23 @@
   @keyframes fade-up {
     0% { opacity: 0; transform: translateY(10px); }
     100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Rocket flame animation */
+  @keyframes flame-flicker {
+    0%, 100% { 
+      transform: scaleY(1); 
+      opacity: 0.9;
+    }
+    50% { 
+      transform: scaleY(0.8); 
+      opacity: 0.7;
+    }
+  }
+  
+  .rocket-flame {
+    animation: flame-flicker 0.3s ease-in-out infinite;
+    transform-origin: center 90px;
   }
   
   .animate-rocket-fly-desktop {
