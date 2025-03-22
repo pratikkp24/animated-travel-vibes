@@ -130,30 +130,31 @@ const Index = () => {
       </div>
       
       <footer className="w-full py-8 px-6 border-t border-trav-primary/10">
-        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex flex-col items-center md:items-start gap-4">
-            <p className="text-sm text-trav-muted">© {new Date().getFullYear()} trav. All rights reserved.</p>
-            <div className="flex items-center text-sm text-trav-muted">
+        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-center gap-6">
+          {/* Copyright and Made with Love Section */}
+          <div className="flex flex-col items-center md:items-start gap-2 text-trav-muted text-sm">
+            <p>© {new Date().getFullYear()} trav. All rights reserved.</p>
+            <div className="flex items-center">
               Made with <Heart className="h-4 w-4 mx-1 text-red-500 animate-pulse" /> in India
             </div>
-            
-            {/* Contact Details */}
-            <div className="mt-4 flex items-center">
-              <Mail className="h-5 w-5 mr-2 text-trav-primary" />
-              <a href="mailto:info@trav.guide" className="text-trav-primary hover:underline">
-                info@trav.guide
-              </a>
-            </div>
-            
-            {/* Contact Form Button */}
-            <Button 
-              variant="outline"
-              className="mt-2 flex items-center gap-2"
-              onClick={() => setContactDialogOpen(true)}
-            >
-              <Send className="h-4 w-4" /> Contact Us
-            </Button>
           </div>
+          
+          {/* Contact Information */}
+          <div className="flex items-center text-trav-primary">
+            <Mail className="h-5 w-5 mr-2" />
+            <a href="mailto:info@trav.guide" className="hover:underline">
+              info@trav.guide
+            </a>
+          </div>
+          
+          {/* Contact Button */}
+          <Button 
+            variant="outline"
+            className="flex items-center gap-2 border-trav-primary text-trav-primary hover:bg-trav-primary/10"
+            onClick={() => setContactDialogOpen(true)}
+          >
+            <Send className="h-4 w-4" /> Contact Us
+          </Button>
         </div>
         
         {/* Contact Form Dialog */}
