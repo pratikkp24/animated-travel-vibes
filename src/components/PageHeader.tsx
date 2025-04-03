@@ -7,7 +7,7 @@ const PageHeader: React.FC = () => {
     <header className="w-full pt-6 px-6">
       <div className="max-w-screen-xl mx-auto flex justify-start">
         <div className="animate-slide-up">
-          <Logo size="md" animated={false} imageSrc="/lovable-uploads/8ef10f67-4be2-44c7-8331-150171b1f4db.png" hideText={true} />
+          <Logo size="md" animated={false} imageSrc="/lovable-uploads/911a6fe7-c7d7-4128-bd52-d0129ca6f8d6.png" hideText={true} />
         </div>
       </div>
     </header>

@@ -37,9 +37,62 @@
 .boarding-pass {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  background-image: linear-gradient(to bottom, #ffffff, #f9f9f9);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 150, 100, 0.2);
 }
 
 .boarding-pass:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Approved stamp animation */
+@keyframes stamp-appear {
+  0% { transform: scale(0) rotate(-45deg); opacity: 0; }
+  50% { transform: scale(1.2) rotate(12deg); opacity: 0.8; }
+  100% { transform: scale(1) rotate(12deg); opacity: 1; }
+}
+
+.stamp-animation {
+  animation: stamp-appear 0.4s ease-out forwards;
+}
+
+/* Boarding pass details styling */
+.boarding-pass-field {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.boarding-pass-field:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 150, 100, 0.1);
+}
+
+/* Riddle option styling */
+.riddle-option {
+  transition: all 0.2s ease;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.riddle-option:hover {
+  transform: translateY(-1px);
+}
+
+.riddle-option.correct {
+  background-color: rgba(0, 200, 100, 0.1);
+  border-color: rgb(0, 200, 100);
+  color: rgb(0, 150, 80);
+}
+
+.riddle-option.incorrect {
+  background-color: rgba(255, 100, 100, 0.1);
+  border-color: rgb(255, 100, 100);
+  color: rgb(200, 50, 50);
 }
