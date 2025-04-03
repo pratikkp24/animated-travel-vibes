@@ -33,7 +33,6 @@ const RiddleStep: React.FC<RiddleStepProps> = ({
     <div className="space-y-8">
       <div className="text-center mb-2">
         <CardTitle className="text-xl md:text-2xl">Your Boarding Pass</CardTitle>
-        <p className="text-sm text-gray-500 mt-1">Solve the riddle to unlock your destination</p>
       </div>
 
       <BoardingPassDisplay 

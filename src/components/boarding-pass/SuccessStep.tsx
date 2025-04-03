@@ -1,32 +1,18 @@
 
 import React from 'react';
 import { CardTitle, CardDescription } from "@/components/ui/card";
+import { Instagram } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { Instagram, MessageSquare } from 'lucide-react';
 import BoardingPassDisplay from './BoardingPassDisplay';
 import { BoardingPassData } from './types';
 
 interface SuccessStepProps {
   boardingPass: BoardingPassData;
-  onDownloadBoardingPass: () => void;
 }
 
 const SuccessStep: React.FC<SuccessStepProps> = ({
   boardingPass,
-  onDownloadBoardingPass
 }) => {
-  const handleShareToWhatsApp = () => {
-    const text = `Check out my Trav boarding pass to ${boardingPass.arrival}! Join me on this adventure! 🌍✈️`;
-    const encodedText = encodeURIComponent(text);
-    window.open(`https://wa.me/?text=${encodedText}`, '_blank');
-  };
-
-  const handleShareToInstagram = () => {
-    // Instagram doesn't have a direct sharing API, so we'll show a toast with instructions
-    // The user needs to take a screenshot and post it manually
-    alert("To share on Instagram: Take a screenshot of your boarding pass and share it as a story or post. Tag @trav.tribe in your story!");
-  };
-
   const handleFollowOnInstagram = () => {
     window.open('https://www.instagram.com/trav.tribe/', '_blank');
   };
@@ -46,28 +32,14 @@ const SuccessStep: React.FC<SuccessStepProps> = ({
         />
       </div>
 
-      <div className="flex flex-col space-y-3">
-        <div className="grid grid-cols-2 gap-3">
-          <Button 
-            onClick={handleShareToWhatsApp}
-            className="w-full bg-[#25D366] hover:bg-[#22c55e] text-white border-none"
-          >
-            <MessageSquare size={16} className="mr-2" /> 
-            Share on WhatsApp
-          </Button>
-          
-          <Button 
-            onClick={handleShareToInstagram}
-            className="w-full bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] hover:bg-gradient-to-r hover:from-[#833AB4]/90 hover:via-[#FD1D1D]/90 hover:to-[#FCAF45]/90 text-white border-none"
-          >
-            <Instagram size={16} className="mr-2" /> 
-            Share on Instagram
-          </Button>
-        </div>
+      <div className="text-center space-y-4">
+        <a href="mailto:info@trav.guide" className="block text-trav-primary hover:underline">
+          info@trav.guide
+        </a>
         
         <Button 
           onClick={handleFollowOnInstagram}
-          className="w-full bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] hover:bg-gradient-to-r hover:from-[#833AB4]/90 hover:via-[#FD1D1D]/90 hover:to-[#FCAF45]/90 text-white border-none"
+          className="bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] hover:bg-gradient-to-r hover:from-[#833AB4]/90 hover:via-[#FD1D1D]/90 hover:to-[#FCAF45]/90 text-white border-none"
         >
           <Instagram size={16} className="mr-2" /> 
           Follow us on Instagram!
