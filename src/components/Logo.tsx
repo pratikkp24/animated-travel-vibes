@@ -25,6 +25,13 @@ const Logo: React.FC<LogoProps> = ({
 
   return (
     <div className={cn("flex items-center gap-2", className)}>
+      {imageSrc && !hideText && (
+        <img 
+          src={imageSrc} 
+          alt="Trav Logo" 
+          className={cn(sizeClasses[size], "object-contain")}
+        />
+      )}
       <span className={cn(
         "font-semibold tracking-tight text-[#079768] font-poppins",
         size === 'sm' && "text-xl",

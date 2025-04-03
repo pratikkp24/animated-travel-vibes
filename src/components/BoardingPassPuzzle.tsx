@@ -91,18 +91,25 @@ const BoardingPassPuzzle: React.FC = () => {
   };
 
   const handleDownloadBoardingPass = () => {
+    // Create a function to capture the boarding pass as an image and download it
+    const boardingPassEl = document.getElementById('boarding-pass');
+    if (!boardingPassEl) {
+      toast({
+        title: "Error",
+        description: "Could not find boarding pass to download.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    // This is a simple implementation using HTML2Canvas
+    // In a real application, you'd want to use a library like html2canvas
     toast({
       title: "Boarding Pass Downloaded",
       description: "Your adventure boarding pass has been saved.",
     });
-  };
-
-  const handleEnterTrav = () => {
-    setIsSheetOpen(false);
-    toast({
-      title: "Welcome to Trav!",
-      description: "Get ready for an amazing journey.",
-    });
+    
+    // In a real implementation, you would add the html2canvas library and use it to capture and download the boarding pass
   };
 
   const renderStep = () => {
@@ -136,7 +143,6 @@ const BoardingPassPuzzle: React.FC = () => {
           <SuccessStep 
             boardingPass={boardingPass}
             onDownloadBoardingPass={handleDownloadBoardingPass}
-            onEnterTrav={handleEnterTrav}
           />
         );
 

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { MapPin, Globe, Barcode, User, Clock, MapIcon, Plane, TicketIcon } from 'lucide-react';
+import { MapPin, Globe, User, Clock, MapIcon, Plane, TicketIcon } from 'lucide-react';
 import { BoardingPassData } from './types';
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
@@ -114,7 +114,7 @@ const BoardingPassDisplay: React.FC<BoardingPassDisplayProps> = ({
           </div>
         </div>
         
-        {/* Right side - Aesthetics */}
+        {/* Right side - QR Code */}
         <div className="flex-1 flex flex-col items-center justify-between pt-2">
           <div className="flex space-x-3 mb-6 justify-center w-full">
             <div className="flex items-center justify-center bg-[#D1EADC] rounded-full p-1.5">
@@ -125,13 +125,13 @@ const BoardingPassDisplay: React.FC<BoardingPassDisplayProps> = ({
             </div>
           </div>
           
-          <div className="bg-gray-50 h-28 w-full flex items-center justify-center rounded-lg mb-6 border border-gray-200">
-            <Barcode size={100} className="text-gray-800" />
-          </div>
-          
-          <div className="bg-gray-50 h-24 w-24 flex items-center justify-center rounded-lg border border-gray-200 mb-4 shadow-sm">
-            <div className="h-20 w-20 border border-gray-300 flex items-center justify-center bg-white rounded-md">
-              <span className="text-xs text-gray-500 font-mono">QR</span>
+          <div className="w-full flex flex-col items-center justify-center rounded-lg mb-6">
+            <div className="qr-container relative w-full max-w-[200px] mx-auto">
+              <img 
+                src="/lovable-uploads/a8a4555e-f167-4b20-b907-12b658481ed2.png" 
+                alt="Scan QR Code" 
+                className="w-full object-contain"
+              />
             </div>
           </div>
           
