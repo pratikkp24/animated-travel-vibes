@@ -5,7 +5,6 @@ import PageHeader from '@/components/PageHeader';
 import HeroSection from '@/components/HeroSection';
 import FeatureCards from '@/components/FeatureCards';
 import PageFooter from '@/components/PageFooter';
-import StarCatchGame from '@/components/StarCatchGame';
 import BoardingPassPuzzle from '@/components/BoardingPassPuzzle';
 import '@/components/BoardingPassPuzzle.css';
 
@@ -21,8 +20,6 @@ const Index = () => {
       <BackgroundEffect />
       
       <PageHeader />
-      
-      <StarCatchGame />
       
       <BoardingPassPuzzle />
       

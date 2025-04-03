@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Plane, Ticket, Map } from 'lucide-react';
+import { MapPin, Globe, Barcode } from 'lucide-react';
 import { BoardingPassData } from './types';
 
 interface BoardingPassDisplayProps {
@@ -31,59 +31,85 @@ const BoardingPassDisplay: React.FC<BoardingPassDisplayProps> = ({
         </div>
       )}
       
-      <div className="flex justify-between items-center mb-3">
-        <div className="text-xs md:text-sm text-gray-600">PASSENGER</div>
-        <div className="text-xs md:text-sm text-gray-600">SEAT</div>
-      </div>
-      
-      <div className="flex justify-between items-center mb-4">
-        <div className="font-bold">{boardingPass.passenger}</div>
-        <div className="font-bold">{boardingPass.seat}</div>
-      </div>
-      
-      <div className="flex justify-between mb-4">
-        <div>
-          <div className="text-xs md:text-sm text-gray-600">DEPARTURE</div>
-          <div className="font-bold">{boardingPass.departure}</div>
-        </div>
-        <div className="flex items-center mx-2">
-          <Plane className="rotate-90 text-trav-primary" size={20} />
-        </div>
-        <div>
-          <div className="text-xs md:text-sm text-gray-600">ARRIVAL</div>
-          <div className="font-bold relative boarding-pass-field">
-            {boardingPass.arrival}
-            {isCorrect && (
-              <div className="absolute -top-5 -right-5 rotate-12">
-                <div className="text-red-600 border-2 border-red-600 rounded px-1 text-xs font-bold">
-                  APPROVED
-                </div>
+      {/* Horizontal split layout */}
+      <div className="flex flex-col md:flex-row gap-4">
+        {/* Left side - Boarding details */}
+        <div className="flex-1 border-b md:border-b-0 md:border-r border-dashed border-gray-300 pb-4 md:pb-0 md:pr-4">
+          <h3 className="font-bold text-sm text-gray-600 mb-3">YOUR BOARDING DETAILS</h3>
+          
+          <div className="space-y-3">
+            <div>
+              <div className="text-xs text-gray-600">PASSENGER</div>
+              <div className="font-bold flex items-center">
+                <span className="mr-2 bg-gray-100 rounded-full p-1 inline-flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </span>
+                {boardingPass.passenger}
               </div>
-            )}
+            </div>
+            
+            <div className="flex justify-between items-start">
+              <div>
+                <div className="text-xs text-gray-600">SEAT</div>
+                <div className="font-bold">{boardingPass.seat}</div>
+              </div>
+              
+              <div>
+                <div className="text-xs text-gray-600">GATE</div>
+                <div className="font-bold">{boardingPass.gate}</div>
+              </div>
+            </div>
+            
+            <div className="flex justify-between items-start">
+              <div>
+                <div className="text-xs text-gray-600">DEPARTURE</div>
+                <div className="font-bold">{boardingPass.departure}</div>
+              </div>
+              
+              <div>
+                <div className="text-xs text-gray-600">BOARDING TIME</div>
+                <div className="font-bold">{boardingPass.boardingTime}</div>
+              </div>
+            </div>
+            
+            <div>
+              <div className="text-xs text-gray-600">ARRIVAL</div>
+              <div className="font-bold relative boarding-pass-field">
+                {boardingPass.arrival}
+                {isCorrect && !isStamped && (
+                  <div className="absolute -top-5 -right-5 rotate-12">
+                    <div className="text-red-600 border-2 border-red-600 rounded px-1 text-xs font-bold">
+                      APPROVED
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div className="flex justify-between items-center">
-        <div>
-          <div className="text-xs md:text-sm text-gray-600">GATE</div>
-          <div className="font-bold">{boardingPass.gate}</div>
-        </div>
-        <div>
-          <div className="text-xs md:text-sm text-gray-600">BOARDING TIME</div>
-          <div className="font-bold">{boardingPass.boardingTime}</div>
-        </div>
-      </div>
-      
-      <div className="mt-4 pt-2 border-t border-dashed border-gray-300 flex justify-between items-center">
-        <div className="flex space-x-1">
-          <Ticket size={16} className="text-trav-primary" />
-          <Map size={16} className="text-trav-primary" />
-        </div>
-        <div className="bg-gray-100 h-16 w-16 flex items-center justify-center rounded">
-          <div className="h-14 w-14 border border-gray-300 flex items-center justify-center">
-            QR
+        
+        {/* Right side - Aesthetics */}
+        <div className="flex-1 flex flex-col items-center justify-between">
+          <div className="flex space-x-2 mb-2">
+            <MapPin size={16} className="text-trav-primary" />
+            <Globe size={16} className="text-trav-primary" />
           </div>
+          
+          <div className="bg-gray-100 h-20 w-full flex items-center justify-center rounded mb-2">
+            <Barcode size={60} className="text-gray-700" />
+          </div>
+          
+          <div className="bg-gray-100 h-16 w-16 flex items-center justify-center rounded">
+            <div className="h-14 w-14 border border-gray-300 flex items-center justify-center">
+              QR
+            </div>
+          </div>
+          
+          {isStamped && (
+            <div className="mt-2 px-3 py-1 bg-gray-100 border border-gray-300 rounded-full text-xs font-medium">
+              BOARDING COMPLETE
+            </div>
+          )}
         </div>
       </div>
     </div>
