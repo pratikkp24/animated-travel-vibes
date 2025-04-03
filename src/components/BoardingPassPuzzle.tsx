@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Ticket, Plane } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -34,7 +33,6 @@ const BoardingPassPuzzle: React.FC = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    // Randomly select a riddle when the component mounts
     const randomIndex = Math.floor(Math.random() * travelRiddles.length);
     setSelectedRiddle(travelRiddles[randomIndex]);
   }, []);
@@ -70,7 +68,6 @@ const BoardingPassPuzzle: React.FC = () => {
       setShowConfetti(true);
       setTimeout(() => setShowConfetti(false), 3000);
     } else {
-      // Wrong answer animation
       const boardingPassEl = document.getElementById('boarding-pass');
       if (boardingPassEl) {
         boardingPassEl.classList.add('shake-animation');
@@ -91,7 +88,6 @@ const BoardingPassPuzzle: React.FC = () => {
   };
 
   const handleDownloadBoardingPass = () => {
-    // Create a function to capture the boarding pass as an image and download it
     const boardingPassEl = document.getElementById('boarding-pass');
     if (!boardingPassEl) {
       toast({
@@ -102,14 +98,10 @@ const BoardingPassPuzzle: React.FC = () => {
       return;
     }
     
-    // This is a simple implementation using HTML2Canvas
-    // In a real application, you'd want to use a library like html2canvas
     toast({
       title: "Boarding Pass Downloaded",
       description: "Your adventure boarding pass has been saved.",
     });
-    
-    // In a real implementation, you would add the html2canvas library and use it to capture and download the boarding pass
   };
 
   const renderStep = () => {
@@ -172,7 +164,7 @@ const BoardingPassPuzzle: React.FC = () => {
               </div>
             </SheetTitle>
             <SheetDescription>
-              Solve the travel riddle to unlock your personalized Wander Pack.
+              {/* Removed the line about solving the travel riddle */}
             </SheetDescription>
           </SheetHeader>
           

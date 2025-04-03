@@ -25,7 +25,7 @@ const Logo: React.FC<LogoProps> = ({
 
   return (
     <div className={cn("flex items-center gap-2", className)}>
-      {imageSrc && !hideText && (
+      {imageSrc && (
         <img 
           src={imageSrc} 
           alt="Trav Logo" 

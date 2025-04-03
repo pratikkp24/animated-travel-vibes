@@ -4,6 +4,7 @@ import { MapPin, Globe, User, Clock, MapIcon, Plane, TicketIcon } from 'lucide-r
 import { BoardingPassData } from './types';
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
+import Logo from '@/components/Logo';
 
 interface BoardingPassDisplayProps {
   boardingPass: BoardingPassData;
@@ -19,8 +20,13 @@ const BoardingPassDisplay: React.FC<BoardingPassDisplayProps> = ({
   return (
     <div 
       id="boarding-pass" 
-      className="boarding-pass relative bg-white rounded-xl border-2 border-[#D1EADC] p-5 max-w-md mx-auto shadow-md overflow-hidden font-poppins"
+      className="boarding-pass relative bg-white rounded-xl border-2 border-[#D1EADC] p-4 max-w-md mx-auto shadow-md overflow-hidden font-poppins transform scale-[0.95]"
     >
+      {/* Trav Logo */}
+      <div className="absolute top-3 left-3 z-10">
+        <Logo size="sm" className="text-[#079768]" />
+      </div>
+      
       {/* Flight code badge */}
       <Badge 
         className="absolute top-3 right-3 bg-[#079768] text-white border-none font-semibold px-3 py-1"
@@ -38,68 +44,68 @@ const BoardingPassDisplay: React.FC<BoardingPassDisplayProps> = ({
       )}
       
       {/* Horizontal split layout */}
-      <div className="flex flex-col md:flex-row gap-6">
+      <div className="flex flex-col md:flex-row gap-4 mt-8">
         {/* Left side - Boarding details */}
-        <div className="flex-1 border-b md:border-b-0 md:border-r border-dashed border-gray-300 pb-4 md:pb-0 md:pr-6">
-          <h3 className="font-bold text-sm text-gray-600 mb-5 uppercase tracking-wider">YOUR BOARDING DETAILS</h3>
+        <div className="flex-1 border-b md:border-b-0 md:border-r border-dashed border-gray-300 pb-4 md:pb-0 md:pr-4">
+          <h3 className="font-bold text-sm text-gray-600 mb-4 uppercase tracking-wider">YOUR BOARDING DETAILS</h3>
           
-          <div className="space-y-6">
+          <div className="space-y-4">
             {/* Section 1: Passenger Info */}
-            <div className="space-y-1.5">
+            <div className="space-y-1">
               <div className="text-xs text-gray-500 uppercase mb-1 font-medium">PASSENGER</div>
-              <div className="font-semibold text-lg flex items-center">
-                <User size={16} className="mr-2 text-[#079768]" />
+              <div className="font-semibold text-base flex items-center">
+                <User size={14} className="mr-2 text-[#079768]" />
                 {boardingPass.passenger}
               </div>
             </div>
             
             {/* Section 2: Seat & Gate */}
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-2 gap-3">
               <div className="space-y-1">
                 <div className="text-xs text-gray-500 uppercase font-medium">SEAT</div>
-                <div className="font-semibold text-base flex items-center">
-                  <TicketIcon size={16} className="mr-2 text-[#079768]" />
+                <div className="font-semibold text-sm flex items-center">
+                  <TicketIcon size={14} className="mr-2 text-[#079768]" />
                   {boardingPass.seat}
                 </div>
               </div>
               
               <div className="space-y-1">
                 <div className="text-xs text-gray-500 uppercase font-medium">GATE</div>
-                <div className="font-semibold text-base flex items-center">
-                  <Plane size={16} className="mr-2 text-[#079768]" />
+                <div className="font-semibold text-sm flex items-center">
+                  <Plane size={14} className="mr-2 text-[#079768]" />
                   {boardingPass.gate}
                 </div>
               </div>
             </div>
             
-            <Separator className="border-dotted border-gray-200 my-3" />
+            <Separator className="border-dotted border-gray-200 my-2" />
             
             {/* Section 3: Departure & Boarding */}
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-2 gap-3">
               <div className="space-y-1">
                 <div className="text-xs text-gray-500 uppercase font-medium">DEPARTURE</div>
-                <div className="font-semibold text-base flex items-center">
-                  <MapPin size={16} className="mr-2 text-[#079768]" />
+                <div className="font-semibold text-sm flex items-center">
+                  <MapPin size={14} className="mr-2 text-[#079768]" />
                   {boardingPass.departure}
                 </div>
               </div>
               
               <div className="space-y-1">
                 <div className="text-xs text-gray-500 uppercase font-medium">BOARDING TIME</div>
-                <div className="font-semibold text-base flex items-center">
-                  <Clock size={16} className="mr-2 text-[#079768]" />
+                <div className="font-semibold text-sm flex items-center">
+                  <Clock size={14} className="mr-2 text-[#079768]" />
                   {boardingPass.boardingTime}
                 </div>
               </div>
             </div>
             
-            <Separator className="border-dotted border-gray-200 my-3" />
+            <Separator className="border-dotted border-gray-200 my-2" />
             
             {/* Section 4: Arrival */}
             <div className="mt-1">
               <div className="text-xs text-gray-500 uppercase mb-1 font-medium">ARRIVAL</div>
-              <div className="font-semibold text-lg relative boarding-pass-field">
-                <MapIcon size={16} className="mr-2 text-[#079768] inline" />
+              <div className="font-semibold text-base relative boarding-pass-field">
+                <MapIcon size={14} className="mr-2 text-[#079768] inline" />
                 <span className="relative">{boardingPass.arrival}</span>
                 
                 {isCorrect && !isStamped && (
@@ -116,27 +122,28 @@ const BoardingPassDisplay: React.FC<BoardingPassDisplayProps> = ({
         
         {/* Right side - QR Code */}
         <div className="flex-1 flex flex-col items-center justify-between pt-2">
-          <div className="flex space-x-3 mb-6 justify-center w-full">
+          <div className="flex space-x-3 mb-3 justify-center w-full">
             <div className="flex items-center justify-center bg-[#D1EADC] rounded-full p-1.5">
-              <Globe size={16} className="text-[#079768]" />
+              <Globe size={14} className="text-[#079768]" />
             </div>
             <div className="flex items-center justify-center bg-[#D1EADC] rounded-full p-1.5">  
-              <Plane size={16} className="text-[#079768] rotate-45" />
+              <Plane size={14} className="text-[#079768] rotate-45" />
             </div>
           </div>
           
-          <div className="w-full flex flex-col items-center justify-center rounded-lg mb-6">
-            <div className="qr-container relative w-full max-w-[200px] mx-auto">
+          <div className="w-full flex flex-col items-center justify-center rounded-lg mb-2">
+            <div className="qr-container relative w-full max-w-[150px] mx-auto">
               <img 
                 src="/lovable-uploads/a8a4555e-f167-4b20-b907-12b658481ed2.png" 
                 alt="Scan QR Code" 
                 className="w-full object-contain"
               />
+              <div className="text-center text-xs font-semibold text-gray-500 mt-1">SCAN ME</div>
             </div>
           </div>
           
           {isStamped && (
-            <div className="mt-2 px-4 py-1.5 bg-[#D1EADC] border border-[#079768]/20 rounded-full text-xs font-semibold text-[#079768]">
+            <div className="mt-1 px-3 py-1 bg-[#D1EADC] border border-[#079768]/20 rounded-full text-xs font-semibold text-[#079768]">
               BOARDING COMPLETE
             </div>
           )}
