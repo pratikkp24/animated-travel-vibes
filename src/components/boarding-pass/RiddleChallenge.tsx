@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { TravelRiddle } from './types';
+import { MapPin } from 'lucide-react';
 
 interface RiddleChallengeProps {
   riddle: TravelRiddle;
@@ -16,16 +17,19 @@ const RiddleChallenge: React.FC<RiddleChallengeProps> = ({
   onOptionSelect
 }) => {
   return (
-    <div className="bg-gray-50 p-4 rounded-lg">
-      <h3 className="font-medium mb-2">Travel Riddle Challenge</h3>
-      <p className="text-sm mb-4">{riddle.question}</p>
+    <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
+      <h3 className="font-medium mb-3 flex items-center">
+        <MapPin size={16} className="mr-2 text-trav-primary" />
+        Travel Riddle Challenge
+      </h3>
+      <p className="text-sm mb-5 text-gray-700">{riddle.question}</p>
       
       <div className="flex flex-wrap gap-2">
         {riddle.options.map((option, index) => (
           <button
             key={index}
             onClick={() => onOptionSelect(option)}
-            className={`px-3 py-1 rounded-full text-sm riddle-option ${
+            className={`px-4 py-2 rounded-full text-sm riddle-option ${
               selectedOption === option 
                 ? option === riddle.correctAnswer
                   ? 'correct' 
@@ -39,9 +43,9 @@ const RiddleChallenge: React.FC<RiddleChallengeProps> = ({
       </div>
       
       {selectedOption && (
-        <div className={`mt-4 text-sm ${isCorrect ? 'text-green-600' : 'text-red-600'}`}>
+        <div className={`mt-4 py-2 text-sm ${isCorrect ? 'text-green-600' : 'text-red-600'} font-medium`}>
           {isCorrect 
-            ? "🎉 You got it! Your Wander Pack is ready." 
+            ? "🎉 You got it! Your Wander Pack is ready for stamping." 
             : "Try again! Your destination's still a mystery."}
         </div>
       )}

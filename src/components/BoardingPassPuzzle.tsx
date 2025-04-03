@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useToast } from "@/hooks/use-toast";
 
-// Import new components
+// Import components
 import UserInfoStep from './boarding-pass/UserInfoStep';
 import RiddleStep from './boarding-pass/RiddleStep';
 import SuccessStep from './boarding-pass/SuccessStep';
@@ -157,8 +157,8 @@ const BoardingPassPuzzle: React.FC = () => {
             Boarding Pass
           </Button>
         </SheetTrigger>
-        <SheetContent className="w-full sm:max-w-md overflow-y-auto max-h-screen">
-          <SheetHeader className="mb-2">
+        <SheetContent className="w-full sm:max-w-md overflow-y-auto max-h-screen border-l border-trav-primary/20">
+          <SheetHeader className="mb-4">
             <SheetTitle className="text-trav-primary">
               <div className="flex items-center justify-center">
                 <Plane className="mr-2" size={20} />

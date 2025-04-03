@@ -30,9 +30,10 @@ const RiddleStep: React.FC<RiddleStepProps> = ({
   if (!selectedRiddle) return null;
   
   return (
-    <div className="space-y-6">
-      <div className="text-center mb-4">
+    <div className="space-y-8">
+      <div className="text-center mb-2">
         <CardTitle className="text-xl md:text-2xl">Your Boarding Pass</CardTitle>
+        <p className="text-sm text-gray-500 mt-1">Solve the riddle to unlock your destination</p>
       </div>
 
       <BoardingPassDisplay 
@@ -40,7 +41,7 @@ const RiddleStep: React.FC<RiddleStepProps> = ({
         isCorrect={isCorrect} 
       />
 
-      <div className="space-y-4">
+      <div className="space-y-5">
         <RiddleChallenge 
           riddle={selectedRiddle}
           selectedOption={selectedOption}
@@ -50,7 +51,7 @@ const RiddleStep: React.FC<RiddleStepProps> = ({
 
         {isCorrect && (
           <Button 
-            className="w-full"
+            className="w-full bg-trav-primary hover:bg-trav-accent text-white"
             onClick={onStampBoardingPass}
           >
             <Unlock size={16} className="mr-2" /> 
