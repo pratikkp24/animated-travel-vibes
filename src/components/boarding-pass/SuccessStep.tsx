@@ -2,7 +2,7 @@
 import React from 'react';
 import { CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Download, Instagram, Share2, Whatsapp } from 'lucide-react';
+import { Download, Instagram, Share2, MessageSquare } from 'lucide-react';
 import BoardingPassDisplay from './BoardingPassDisplay';
 import { BoardingPassData } from './types';
 
@@ -55,7 +55,7 @@ const SuccessStep: React.FC<SuccessStepProps> = ({
             onClick={handleShareToWhatsApp}
             className="w-full bg-[#25D366] hover:bg-[#22c55e] text-white border-none"
           >
-            <Whatsapp size={16} className="mr-2" /> 
+            <MessageSquare size={16} className="mr-2" /> 
             Share on WhatsApp
           </Button>
           
