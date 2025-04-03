@@ -5,6 +5,7 @@ import PageHeader from '@/components/PageHeader';
 import HeroSection from '@/components/HeroSection';
 import FeatureCards from '@/components/FeatureCards';
 import PageFooter from '@/components/PageFooter';
+import StarCatchGame from '@/components/StarCatchGame';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -18,6 +19,8 @@ const Index = () => {
       <BackgroundEffect />
       
       <PageHeader />
+      
+      <StarCatchGame />
       
       <div className="flex-1 w-full max-w-screen-xl mx-auto px-6 py-10 md:py-16 flex flex-col items-center justify-center">
         <HeroSection isVisible={isVisible} />
