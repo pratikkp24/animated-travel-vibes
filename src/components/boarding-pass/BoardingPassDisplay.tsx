@@ -19,11 +19,11 @@ const BoardingPassDisplay: React.FC<BoardingPassDisplayProps> = ({
   return (
     <div 
       id="boarding-pass" 
-      className="boarding-pass relative bg-white rounded-xl border-2 border-trav-primary/30 p-5 max-w-md mx-auto shadow-md overflow-hidden"
+      className="boarding-pass relative bg-white rounded-xl border-2 border-[#D1EADC] p-5 max-w-md mx-auto shadow-md overflow-hidden font-poppins"
     >
       {/* Flight code badge */}
       <Badge 
-        className="absolute top-3 right-3 bg-trav-secondary text-trav-primary border-trav-primary/20 font-semibold px-3 py-1"
+        className="absolute top-3 right-3 bg-[#079768] text-white border-none font-semibold px-3 py-1"
       >
         {boardingPass.flightCode}
       </Badge>
@@ -46,9 +46,9 @@ const BoardingPassDisplay: React.FC<BoardingPassDisplayProps> = ({
           <div className="space-y-6">
             {/* Section 1: Passenger Info */}
             <div className="space-y-1.5">
-              <div className="text-xs text-gray-500 uppercase mb-1">PASSENGER</div>
-              <div className="font-bold text-lg flex items-center">
-                <User size={16} className="mr-2 text-trav-primary" />
+              <div className="text-xs text-gray-500 uppercase mb-1 font-medium">PASSENGER</div>
+              <div className="font-semibold text-lg flex items-center">
+                <User size={16} className="mr-2 text-[#079768]" />
                 {boardingPass.passenger}
               </div>
             </div>
@@ -56,17 +56,17 @@ const BoardingPassDisplay: React.FC<BoardingPassDisplayProps> = ({
             {/* Section 2: Seat & Gate */}
             <div className="grid grid-cols-1 gap-4">
               <div className="space-y-1">
-                <div className="text-xs text-gray-500 uppercase">SEAT</div>
-                <div className="font-bold text-base flex items-center">
-                  <TicketIcon size={16} className="mr-2 text-trav-primary" />
+                <div className="text-xs text-gray-500 uppercase font-medium">SEAT</div>
+                <div className="font-semibold text-base flex items-center">
+                  <TicketIcon size={16} className="mr-2 text-[#079768]" />
                   {boardingPass.seat}
                 </div>
               </div>
               
               <div className="space-y-1">
-                <div className="text-xs text-gray-500 uppercase">GATE</div>
-                <div className="font-bold text-base flex items-center">
-                  <Plane size={16} className="mr-2 text-trav-primary" />
+                <div className="text-xs text-gray-500 uppercase font-medium">GATE</div>
+                <div className="font-semibold text-base flex items-center">
+                  <Plane size={16} className="mr-2 text-[#079768]" />
                   {boardingPass.gate}
                 </div>
               </div>
@@ -77,17 +77,17 @@ const BoardingPassDisplay: React.FC<BoardingPassDisplayProps> = ({
             {/* Section 3: Departure & Boarding */}
             <div className="grid grid-cols-1 gap-4">
               <div className="space-y-1">
-                <div className="text-xs text-gray-500 uppercase">DEPARTURE</div>
-                <div className="font-bold text-base flex items-center">
-                  <MapPin size={16} className="mr-2 text-trav-primary" />
+                <div className="text-xs text-gray-500 uppercase font-medium">DEPARTURE</div>
+                <div className="font-semibold text-base flex items-center">
+                  <MapPin size={16} className="mr-2 text-[#079768]" />
                   {boardingPass.departure}
                 </div>
               </div>
               
               <div className="space-y-1">
-                <div className="text-xs text-gray-500 uppercase">BOARDING TIME</div>
-                <div className="font-bold text-base flex items-center">
-                  <Clock size={16} className="mr-2 text-trav-primary" />
+                <div className="text-xs text-gray-500 uppercase font-medium">BOARDING TIME</div>
+                <div className="font-semibold text-base flex items-center">
+                  <Clock size={16} className="mr-2 text-[#079768]" />
                   {boardingPass.boardingTime}
                 </div>
               </div>
@@ -97,9 +97,9 @@ const BoardingPassDisplay: React.FC<BoardingPassDisplayProps> = ({
             
             {/* Section 4: Arrival */}
             <div className="mt-1">
-              <div className="text-xs text-gray-500 uppercase mb-1">ARRIVAL</div>
-              <div className="font-bold text-lg relative boarding-pass-field">
-                <MapIcon size={16} className="mr-2 text-trav-primary inline" />
+              <div className="text-xs text-gray-500 uppercase mb-1 font-medium">ARRIVAL</div>
+              <div className="font-semibold text-lg relative boarding-pass-field">
+                <MapIcon size={16} className="mr-2 text-[#079768] inline" />
                 <span className="relative">{boardingPass.arrival}</span>
                 
                 {isCorrect && !isStamped && (
@@ -117,11 +117,11 @@ const BoardingPassDisplay: React.FC<BoardingPassDisplayProps> = ({
         {/* Right side - Aesthetics */}
         <div className="flex-1 flex flex-col items-center justify-between pt-2">
           <div className="flex space-x-3 mb-6 justify-center w-full">
-            <div className="flex items-center justify-center bg-trav-secondary rounded-full p-1.5">
-              <Globe size={16} className="text-trav-primary" />
+            <div className="flex items-center justify-center bg-[#D1EADC] rounded-full p-1.5">
+              <Globe size={16} className="text-[#079768]" />
             </div>
-            <div className="flex items-center justify-center bg-trav-secondary rounded-full p-1.5">  
-              <Plane size={16} className="text-trav-primary rotate-45" />
+            <div className="flex items-center justify-center bg-[#D1EADC] rounded-full p-1.5">  
+              <Plane size={16} className="text-[#079768] rotate-45" />
             </div>
           </div>
           
@@ -129,14 +129,14 @@ const BoardingPassDisplay: React.FC<BoardingPassDisplayProps> = ({
             <Barcode size={100} className="text-gray-800" />
           </div>
           
-          <div className="bg-gray-50 h-24 w-24 flex items-center justify-center rounded-lg border border-gray-200 mb-4">
+          <div className="bg-gray-50 h-24 w-24 flex items-center justify-center rounded-lg border border-gray-200 mb-4 shadow-sm">
             <div className="h-20 w-20 border border-gray-300 flex items-center justify-center bg-white rounded-md">
               <span className="text-xs text-gray-500 font-mono">QR</span>
             </div>
           </div>
           
           {isStamped && (
-            <div className="mt-2 px-4 py-1.5 bg-trav-secondary border border-trav-primary/20 rounded-full text-xs font-semibold text-trav-primary">
+            <div className="mt-2 px-4 py-1.5 bg-[#D1EADC] border border-[#079768]/20 rounded-full text-xs font-semibold text-[#079768]">
               BOARDING COMPLETE
             </div>
           )}

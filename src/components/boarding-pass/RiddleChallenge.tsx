@@ -18,18 +18,18 @@ const RiddleChallenge: React.FC<RiddleChallengeProps> = ({
 }) => {
   return (
     <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
-      <h3 className="font-medium mb-3 flex items-center">
-        <MapPin size={16} className="mr-2 text-trav-primary" />
+      <h3 className="font-medium mb-3 flex items-center font-poppins">
+        <MapPin size={16} className="mr-2 text-[#079768]" />
         Travel Riddle Challenge
       </h3>
-      <p className="text-sm mb-5 text-gray-700">{riddle.question}</p>
+      <p className="text-sm mb-5 text-gray-700 font-poppins">{riddle.question}</p>
       
       <div className="flex flex-wrap gap-2">
         {riddle.options.map((option, index) => (
           <button
             key={index}
             onClick={() => onOptionSelect(option)}
-            className={`px-4 py-2 rounded-full text-sm riddle-option ${
+            className={`px-4 py-2 rounded-full text-sm font-poppins riddle-option ${
               selectedOption === option 
                 ? option === riddle.correctAnswer
                   ? 'correct' 
@@ -43,7 +43,7 @@ const RiddleChallenge: React.FC<RiddleChallengeProps> = ({
       </div>
       
       {selectedOption && (
-        <div className={`mt-4 py-2 text-sm ${isCorrect ? 'text-green-600' : 'text-red-600'} font-medium`}>
+        <div className={`mt-4 py-2 text-sm ${isCorrect ? 'text-green-600' : 'text-red-600'} font-medium font-poppins`}>
           {isCorrect 
             ? "🎉 You got it! Your Wander Pack is ready for stamping." 
             : "Try again! Your destination's still a mystery."}
