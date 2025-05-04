@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -83,32 +82,32 @@ const HostWithUs = () => {
     {
       id: 'commission',
       question: 'Will Trav charge a commission at launch?',
-      answer: 'Early hosts will enjoy a commission-free period. After our initial launch phase, a fair fee structure will be implemented to support the platform's growth and services.'
+      answer: "Early hosts will enjoy a commission-free period. After our initial launch phase, a fair fee structure will be implemented to support the platform's growth and services."
     },
     {
       id: 'reach',
       question: 'How does Trav help me reach travelers?',
-      answer: 'Trav combines story-led content creation with a targeted platform designed for curious travelers. Your property becomes part of curated travel experiences, not just a listing.'
+      answer: "Trav combines story-led content creation with a targeted platform designed for curious travelers. Your property becomes part of curated travel experiences, not just a listing."
     },
     {
       id: 'earlyAccess',
       question: 'What does early access mean?',
-      answer: 'Early access means you'll be among the first homestays on our platform, with priority visibility, promotional features, and input into how we develop our host tools.'
+      answer: "Early access means you'll be among the first homestays on our platform, with priority visibility, promotional features, and input into how we develop our host tools."
     },
     {
       id: 'listing',
       question: 'How do I list my homestay?',
-      answer: 'Fill out the form below and our team will reach out to you personally. We'll guide you through the simple process of creating your digital presence on Trav.'
+      answer: "Fill out the form below and our team will reach out to you personally. We'll guide you through the simple process of creating your digital presence on Trav."
     },
     {
       id: 'launch',
       question: 'When is Trav launching?',
-      answer: 'Trav will launch in phases throughout 2023, beginning with select destinations in India. Early hosts will be onboarded before the full public launch.'
+      answer: "Trav will launch in phases throughout 2023, beginning with select destinations in India. Early hosts will be onboarded before the full public launch."
     },
     {
       id: 'contact',
       question: 'Can I speak to someone from the team?',
-      answer: 'Absolutely! After you submit the form below, we'll arrange a personal call to discuss your property and answer any questions you may have.'
+      answer: "Absolutely! After you submit the form below, we'll arrange a personal call to discuss your property and answer any questions you may have."
     }
   ];
 
