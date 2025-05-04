@@ -3,6 +3,7 @@ import React from 'react';
 import TypingAnimation from './TypingAnimation';
 import EarlyAccessForm from './EarlyAccessForm';
 import RocketAnimation from './RocketAnimation';
+import { Link } from 'react-router-dom';
 
 interface HeroSectionProps {
   isVisible: boolean;
@@ -27,6 +28,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isVisible }) => {
       
       <div className={`opacity-0 ${isVisible ? 'animate-slide-up-delay-3' : ''}`}>
         <EarlyAccessForm />
+        
+        <p className="mt-4 text-sm text-center">
+          Are you a homestay owner?{" "}
+          <Link 
+            to="/host-with-us" 
+            className="text-trav-primary font-medium border-b border-transparent hover:border-trav-primary transition-all duration-300 hover:-translate-y-0.5 inline-block"
+          >
+            Host With Us
+          </Link>
+          {" "}and shape the future of travel.
+        </p>
       </div>
     </div>
   );
