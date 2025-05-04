@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -33,6 +33,7 @@ import Logo from '@/components/Logo';
 import { Card, CardContent } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { Link } from 'react-router-dom';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -111,6 +112,27 @@ const HostWithUs = () => {
     }
   ];
 
+  // Images for carousel
+  const carouselImages = [
+    { url: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?q=80&w=2940&auto=format&fit=crop', alt: 'Cozy homestay living room' },
+    { url: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2970&auto=format&fit=crop', alt: 'Working remotely from a homestay' },
+    { url: 'https://images.unsplash.com/photo-1721322800607-8c38375eef04?q=80&w=2836&auto=format&fit=crop', alt: 'Beautiful homestay interior' },
+    { url: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=2787&auto=format&fit=crop', alt: 'Nature travel destination' },
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Rotation effect for images
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 2500); // Change image every 2.5 seconds
+
+    return () => clearInterval(interval);
+  }, [carouselImages.length]);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -143,8 +165,23 @@ const HostWithUs = () => {
             </Button>
           </div>
           <div className="hidden md:block bg-trav-light rounded-lg p-6">
-            <div className="aspect-square rounded-lg bg-trav-secondary flex items-center justify-center">
-              <Home className="h-24 w-24 text-trav-primary" />
+            <div className="aspect-square rounded-lg bg-trav-secondary overflow-hidden relative">
+              {carouselImages.map((image, index) => (
+                <div 
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-1000 ${
+                    index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  <AspectRatio ratio={1/1} className="h-full">
+                    <img 
+                      src={image.url}
+                      alt={image.alt}
+                      className="object-cover w-full h-full rounded-lg"
+                    />
+                  </AspectRatio>
+                </div>
+              ))}
             </div>
           </div>
         </div>
