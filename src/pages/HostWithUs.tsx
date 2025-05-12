@@ -27,13 +27,17 @@ import {
   Globe,
   ChevronDown,
   Instagram,
-  Mail
+  Mail,
+  MessageSquare,
+  Gift,
+  PartyPopper
 } from 'lucide-react';
 import Logo from '@/components/Logo';
 import { Card, CardContent } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { Link } from 'react-router-dom';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { motion } from '@/components/ui/motion';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -133,6 +137,74 @@ const HostWithUs = () => {
     return () => clearInterval(interval);
   }, [carouselImages.length]);
 
+  // Feature cards for "What is Trav?" section
+  const featureCards = [
+    { 
+      icon: <Camera className="h-5 w-5" />, 
+      title: 'Story-Led Travel', 
+      description: 'Every stay begins with a Trav — a short video + itinerary.'
+    },
+    { 
+      icon: <Briefcase className="h-5 w-5" />, 
+      title: 'Built for Explorers', 
+      description: 'Tailored for curious, next-gen travelers who lead with inspiration.'
+    },
+    { 
+      icon: <Home className="h-5 w-5" />, 
+      title: 'Made for Hosts', 
+      description: 'Showcase your space and earn visibility through real stories.'
+    },
+    { 
+      icon: <MessageSquare className="h-5 w-5" />, 
+      title: 'Powered by You', 
+      description: 'Suggest features. Vote on ideas. Help shape the app you love.'
+    },
+    { 
+      icon: <Gift className="h-5 w-5" />, 
+      title: 'Earn & Get Rewarded', 
+      description: 'Share itineraries, refer friends, and earn Trav Coins that matter.'
+    },
+    { 
+      icon: <Users className="h-5 w-5" />, 
+      title: 'Group Travel, Simplified', 
+      description: 'Plan together, split bills, and relive moments with your crew.'
+    }
+  ];
+
+  // Early access benefits for "Why Join Early?" section
+  const earlyAccessBenefits = [
+    { 
+      icon: <Check className="h-5 w-5" />, 
+      title: 'Zero Commission*', 
+      description: 'No platform fee — keep 100% of your earnings as an early host.'
+    },
+    { 
+      icon: <TrendingUp className="h-5 w-5" />, 
+      title: 'Discovery Boost', 
+      description: 'Be featured through content-first visibility and top placement.'
+    },
+    { 
+      icon: <Shield className="h-5 w-5" />, 
+      title: 'Free TravONE Protection', 
+      description: 'Get complimentary property insurance on every booking.'
+    },
+    { 
+      icon: <Headphones className="h-5 w-5" />, 
+      title: '1:1 Onboarding', 
+      description: 'We guide you personally — every step of the way.'
+    },
+    { 
+      icon: <UserPlus className="h-5 w-5" />, 
+      title: 'Creator Collabs', 
+      description: 'Partner with top travel creators to spotlight your stay.'
+    },
+    { 
+      icon: <Globe className="h-5 w-5" />, 
+      title: 'Trusted Network', 
+      description: 'Join a curated, community-first group of iconic properties.'
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -187,147 +259,80 @@ const HostWithUs = () => {
         </div>
       </section>
 
-      {/* What Is Trav Section */}
-      <section className="py-16 bg-trav-secondary/20 px-6">
-        <div className="max-w-screen-xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">What Is Trav?</h2>
+      {/* What Is Trav Section - Redesigned with stacked cards */}
+      <section className="py-16 px-6">
+        <div className="max-w-md mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-3">
+            What is Trav?
+          </h2>
+          <p className="text-lg text-trav-muted mb-8 text-center max-w-xl mx-auto">
+            Your travel universe — built for stories, spontaneity, and connection.
+          </p>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="mx-auto w-16 h-16 flex items-center justify-center bg-trav-light rounded-full mb-4">
-                <Camera className="h-8 w-8 text-trav-primary" />
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Story-Led Travel</h3>
-              <p className="text-trav-muted">Every stay starts with a Trav (video + itinerary)</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="mx-auto w-16 h-16 flex items-center justify-center bg-trav-light rounded-full mb-4">
-                <Briefcase className="h-8 w-8 text-trav-primary" />
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Built for Explorers</h3>
-              <p className="text-trav-muted">Designed for next-gen travelers</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="mx-auto w-16 h-16 flex items-center justify-center bg-trav-light rounded-full mb-4">
-                <Home className="h-8 w-8 text-trav-primary" />
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Made for Hosts</h3>
-              <p className="text-trav-muted">Spotlight your unique property</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="mx-auto w-16 h-16 flex items-center justify-center bg-trav-light rounded-full mb-4">
-                <Users className="h-8 w-8 text-trav-primary" />
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Powered by You</h3>
-              <p className="text-trav-muted">Help shape the platform</p>
-            </div>
+          <div className="space-y-3">
+            {featureCards.map((card, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-xl p-5 shadow-sm border border-trav-primary/10 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col items-center"
+              >
+                <div className="w-10 h-10 rounded-full bg-[#E5F7EE] flex items-center justify-center mb-2">
+                  <div className="text-[#079768]">
+                    {card.icon}
+                  </div>
+                </div>
+                <h3 className="font-semibold text-[15px] mb-1">{card.title}</h3>
+                <p className="text-[13px] text-trav-muted">{card.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
-
-      {/* Why Join Early Section */}
-      <section className="py-16 px-6">
-        <div className="max-w-screen-xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">Why Join Early?</h2>
-          <p className="text-center text-trav-muted mb-12 max-w-2xl mx-auto">
-            Early hosts enjoy exclusive benefits as we build the platform together.
+      
+      {/* Why Join Early? Section - Redesigned with horizontal layout cards */}
+      <section className="py-16 bg-trav-secondary/10 px-6">
+        <div className="max-w-md mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-3">
+            Why Join Early?
+          </h2>
+          <p className="text-lg text-trav-muted mb-8 text-center max-w-xl mx-auto">
+            Founding hosts unlock perks that won't last forever.
           </p>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="hover:-translate-y-1 transition-transform duration-300">
-              <CardContent className="pt-6">
-                <div className="flex items-start mb-4">
-                  <div className="mr-4 p-2 bg-trav-light rounded-lg">
-                    <Check className="h-6 w-6 text-trav-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Zero Commissions*</h3>
-                    <p className="text-trav-muted">No platform fee for early hosts</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-            
-            <Card className="hover:-translate-y-1 transition-transform duration-300">
-              <CardContent className="pt-6">
-                <div className="flex items-start mb-4">
-                  <div className="mr-4 p-2 bg-trav-light rounded-lg">
-                    <TrendingUp className="h-6 w-6 text-trav-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Discovery Boost</h3>
-                    <p className="text-trav-muted">Get visibility through content</p>
+          <div className="space-y-3">
+            {earlyAccessBenefits.map((benefit, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-xl p-4 shadow-sm border border-trav-primary/10 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 max-h-[120px] flex"
+              >
+                <div className="w-10 h-10 rounded-full bg-[#E5F7EE] flex items-center justify-center mr-3 flex-shrink-0">
+                  <div className="text-[#079768]">
+                    {benefit.icon}
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-            
-            <Card className="hover:-translate-y-1 transition-transform duration-300">
-              <CardContent className="pt-6">
-                <div className="flex items-start mb-4">
-                  <div className="mr-4 p-2 bg-trav-light rounded-lg">
-                    <Shield className="h-6 w-6 text-trav-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Host Protection</h3>
-                    <p className="text-trav-muted">Built-in guest verification, reviews</p>
-                  </div>
+                <div className="text-left">
+                  <h3 className="font-semibold text-[15px] mb-0.5">{benefit.title}</h3>
+                  <p className="text-[12px] text-trav-muted">{benefit.description}</p>
                 </div>
-              </CardContent>
-            </Card>
-            
-            <Card className="hover:-translate-y-1 transition-transform duration-300">
-              <CardContent className="pt-6">
-                <div className="flex items-start mb-4">
-                  <div className="mr-4 p-2 bg-trav-light rounded-lg">
-                    <Headphones className="h-6 w-6 text-trav-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Personal Onboarding</h3>
-                    <p className="text-trav-muted">1:1 support during onboarding</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-            
-            <Card className="hover:-translate-y-1 transition-transform duration-300">
-              <CardContent className="pt-6">
-                <div className="flex items-start mb-4">
-                  <div className="mr-4 p-2 bg-trav-light rounded-lg">
-                    <UserPlus className="h-6 w-6 text-trav-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Creator Collabs</h3>
-                    <p className="text-trav-muted">Pair with creators for travel content</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-            
-            <Card className="hover:-translate-y-1 transition-transform duration-300">
-              <CardContent className="pt-6">
-                <div className="flex items-start mb-4">
-                  <div className="mr-4 p-2 bg-trav-light rounded-lg">
-                    <Globe className="h-6 w-6 text-trav-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Trusted Network</h3>
-                    <p className="text-trav-muted">Join a curated group of iconic stays</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+              </motion.div>
+            ))}
           </div>
           
-          <p className="text-sm text-center mt-6 text-trav-muted">*For a limited time during our early access phase</p>
+          <p className="text-xs text-trav-muted mt-3 text-center">
+            *Limited-time offer during early access phase
+          </p>
         </div>
       </section>
 
       {/* FAQs Section */}
-      <section className="py-16 bg-trav-secondary/10 px-6">
+      <section className="py-16 px-6">
         <div className="max-w-screen-xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
           
@@ -351,6 +356,16 @@ const HostWithUs = () => {
               </Collapsible>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Social Proof Section - Redesigned with confetti icon */}
+      <section className="py-10 px-6 bg-trav-secondary/5">
+        <div className="max-w-md mx-auto flex items-center justify-center">
+          <PartyPopper className="h-5 w-5 text-[#079768] mr-2" />
+          <p className="text-[13px] font-medium text-trav-muted">
+            Over <span className="text-[#079768] font-bold">40+</span> hosts have already joined Trav's early access journey.
+          </p>
         </div>
       </section>
 
@@ -473,8 +488,34 @@ const HostWithUs = () => {
         </div>
       </section>
 
+      {/* CTA Section - Redesigned with pill-shaped buttons */}
+      <section className="py-10 bg-trav-secondary/10 px-6">
+        <div className="max-w-sm mx-auto flex flex-col items-center space-y-3">
+          <Button 
+            size="lg" 
+            className="w-full py-7 bg-[#079768] hover:bg-[#058257] text-white font-medium rounded-full text-[15px] hover:-translate-y-0.5 transition-transform"
+            onClick={() => {
+              document.getElementById('host-form')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            Get Early Access
+          </Button>
+          
+          <Button 
+            size="lg"
+            variant="outline" 
+            className="w-full py-7 border-[#079768] text-[#079768] font-medium rounded-full text-[15px] hover:bg-[#079768] hover:text-white transition-colors"
+            onClick={() => {
+              document.getElementById('host-form')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            Host With Us
+          </Button>
+        </div>
+      </section>
+
       {/* Contact Section */}
-      <section className="py-8 bg-trav-secondary/10 px-6">
+      <section className="py-8 px-6">
         <div className="max-w-screen-xl mx-auto text-center space-y-4">
           <div className="flex items-center justify-center gap-3">
             <Mail size={18} className="text-trav-primary" />
@@ -495,7 +536,7 @@ const HostWithUs = () => {
         </div>
       </section>
 
-      {/* Social Proof */}
+      {/* Social Proof footer */}
       <section className="py-8 px-6 border-t border-trav-primary/10">
         <div className="max-w-screen-xl mx-auto text-center">
           <p className="text-trav-muted">
