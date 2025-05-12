@@ -2,11 +2,11 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
-import { BoardingPassData } from './types';
+import { SuccessStepBoardingPass } from './types';
 import Confetti from './Confetti';
 
 export interface SuccessStepProps {
-  boardingPass: BoardingPassData;
+  boardingPass: SuccessStepBoardingPass;
   onDownloadBoardingPass?: () => void;
 }
 

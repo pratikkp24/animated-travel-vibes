@@ -15,4 +15,13 @@ export interface BoardingPassData {
   seat: string;
 }
 
+// For the SuccessStep component specifically
+export interface SuccessStepBoardingPass {
+  name: string;
+  email: string;
+  id: string;
+  date: string;
+  destination: string;
+}
+
 export type BoardingPassStep = 1 | 3 | 5;
